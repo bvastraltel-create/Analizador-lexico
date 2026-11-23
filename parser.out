@@ -1,0 +1,1169 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ESEDESTE
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> programa instruccion
+Rule 2     programa -> instruccion
+Rule 3     instruccion -> sentencia_select PUNTOCOMA
+Rule 4     instruccion -> sentencia_insert PUNTOCOMA
+Rule 5     instruccion -> sentencia_delete PUNTOCOMA
+Rule 6     instruccion -> sentencia_update PUNTOCOMA
+Rule 7     instruccion -> error PUNTOCOMA
+Rule 8     sentencia_select -> ELDESTE lista_vars CAFE VAR condicion_opt
+Rule 9     sentencia_select -> ELDESTE lista_vars FROM VAR condicion_opt
+Rule 10    sentencia_insert -> LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN
+Rule 11    sentencia_delete -> LADASTA CAFE VAR condicion_opt
+Rule 12    sentencia_update -> MEZCLA VAR LADESTE lista_asignaciones condicion_opt
+Rule 13    lista_vars -> VAR
+Rule 14    lista_vars -> lista_vars COMA VAR
+Rule 15    lista_expresiones -> expresion
+Rule 16    lista_expresiones -> lista_expresiones COMA expresion
+Rule 17    lista_asignaciones -> VAR ASG expresion
+Rule 18    lista_asignaciones -> lista_asignaciones COMA VAR ASG expresion
+Rule 19    condicion_opt -> CONAZUCAR condicion
+Rule 20    condicion_opt -> empty
+Rule 21    condicion -> expresion IGUAL expresion
+Rule 22    condicion -> expresion GT expresion
+Rule 23    condicion -> expresion LT expresion
+Rule 24    condicion -> expresion DISTINTO expresion
+Rule 25    expresion -> NUM
+Rule 26    expresion -> STR
+Rule 27    expresion -> VAR
+Rule 28    expresion -> expresion MAS expresion
+Rule 29    expresion -> expresion MENOS expresion
+Rule 30    expresion -> expresion MUL expresion
+Rule 31    expresion -> expresion DIV expresion
+Rule 32    expresion -> LPAREN expresion RPAREN
+Rule 33    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ASG                  : 17 18
+CAFE                 : 8 11
+COMA                 : 14 16 18
+CONAZUCAR            : 19
+DISTINTO             : 24
+DIV                  : 31
+ELDESTE              : 8 9
+ESEDESTE             : 
+FROM                 : 9
+GT                   : 22
+IGUAL                : 21
+LADASTA              : 11
+LADESTE              : 10 12
+LPAREN               : 10 10 32
+LT                   : 23
+MARCACAFE            : 10
+MAS                  : 28
+MENOS                : 29
+MEZCLA               : 12
+MUL                  : 30
+NUM                  : 25
+PUNTOCOMA            : 3 4 5 6 7
+RPAREN               : 10 10 32
+STR                  : 26
+VALUES               : 10
+VAR                  : 8 9 10 11 12 13 14 17 18 27
+error                : 7
+
+Nonterminals, with rules where they appear
+
+condicion            : 19
+condicion_opt        : 8 9 11 12
+empty                : 20
+expresion            : 15 16 17 18 21 21 22 22 23 23 24 24 28 28 29 29 30 30 31 31 32
+instruccion          : 1 2
+lista_asignaciones   : 12 18
+lista_expresiones    : 10 16
+lista_vars           : 8 9 10 14
+programa             : 1 0
+sentencia_delete     : 5
+sentencia_insert     : 4
+sentencia_select     : 3
+sentencia_update     : 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . programa instruccion
+    (2) programa -> . instruccion
+    (3) instruccion -> . sentencia_select PUNTOCOMA
+    (4) instruccion -> . sentencia_insert PUNTOCOMA
+    (5) instruccion -> . sentencia_delete PUNTOCOMA
+    (6) instruccion -> . sentencia_update PUNTOCOMA
+    (7) instruccion -> . error PUNTOCOMA
+    (8) sentencia_select -> . ELDESTE lista_vars CAFE VAR condicion_opt
+    (9) sentencia_select -> . ELDESTE lista_vars FROM VAR condicion_opt
+    (10) sentencia_insert -> . LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN
+    (11) sentencia_delete -> . LADASTA CAFE VAR condicion_opt
+    (12) sentencia_update -> . MEZCLA VAR LADESTE lista_asignaciones condicion_opt
+
+    error           shift and go to state 7
+    ELDESTE         shift and go to state 8
+    LADESTE         shift and go to state 9
+    LADASTA         shift and go to state 10
+    MEZCLA          shift and go to state 11
+
+    programa                       shift and go to state 1
+    instruccion                    shift and go to state 2
+    sentencia_select               shift and go to state 3
+    sentencia_insert               shift and go to state 4
+    sentencia_delete               shift and go to state 5
+    sentencia_update               shift and go to state 6
+
+state 1
+
+    (0) S' -> programa .
+    (1) programa -> programa . instruccion
+    (3) instruccion -> . sentencia_select PUNTOCOMA
+    (4) instruccion -> . sentencia_insert PUNTOCOMA
+    (5) instruccion -> . sentencia_delete PUNTOCOMA
+    (6) instruccion -> . sentencia_update PUNTOCOMA
+    (7) instruccion -> . error PUNTOCOMA
+    (8) sentencia_select -> . ELDESTE lista_vars CAFE VAR condicion_opt
+    (9) sentencia_select -> . ELDESTE lista_vars FROM VAR condicion_opt
+    (10) sentencia_insert -> . LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN
+    (11) sentencia_delete -> . LADASTA CAFE VAR condicion_opt
+    (12) sentencia_update -> . MEZCLA VAR LADESTE lista_asignaciones condicion_opt
+
+    error           shift and go to state 7
+    ELDESTE         shift and go to state 8
+    LADESTE         shift and go to state 9
+    LADASTA         shift and go to state 10
+    MEZCLA          shift and go to state 11
+
+    instruccion                    shift and go to state 12
+    sentencia_select               shift and go to state 3
+    sentencia_insert               shift and go to state 4
+    sentencia_delete               shift and go to state 5
+    sentencia_update               shift and go to state 6
+
+state 2
+
+    (2) programa -> instruccion .
+
+    error           reduce using rule 2 (programa -> instruccion .)
+    ELDESTE         reduce using rule 2 (programa -> instruccion .)
+    LADESTE         reduce using rule 2 (programa -> instruccion .)
+    LADASTA         reduce using rule 2 (programa -> instruccion .)
+    MEZCLA          reduce using rule 2 (programa -> instruccion .)
+    $end            reduce using rule 2 (programa -> instruccion .)
+
+
+state 3
+
+    (3) instruccion -> sentencia_select . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 13
+
+
+state 4
+
+    (4) instruccion -> sentencia_insert . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 14
+
+
+state 5
+
+    (5) instruccion -> sentencia_delete . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 15
+
+
+state 6
+
+    (6) instruccion -> sentencia_update . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 16
+
+
+state 7
+
+    (7) instruccion -> error . PUNTOCOMA
+
+    PUNTOCOMA       shift and go to state 17
+
+
+state 8
+
+    (8) sentencia_select -> ELDESTE . lista_vars CAFE VAR condicion_opt
+    (9) sentencia_select -> ELDESTE . lista_vars FROM VAR condicion_opt
+    (13) lista_vars -> . VAR
+    (14) lista_vars -> . lista_vars COMA VAR
+
+    VAR             shift and go to state 19
+
+    lista_vars                     shift and go to state 18
+
+state 9
+
+    (10) sentencia_insert -> LADESTE . MARCACAFE VAR LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN
+
+    MARCACAFE       shift and go to state 20
+
+
+state 10
+
+    (11) sentencia_delete -> LADASTA . CAFE VAR condicion_opt
+
+    CAFE            shift and go to state 21
+
+
+state 11
+
+    (12) sentencia_update -> MEZCLA . VAR LADESTE lista_asignaciones condicion_opt
+
+    VAR             shift and go to state 22
+
+
+state 12
+
+    (1) programa -> programa instruccion .
+
+    error           reduce using rule 1 (programa -> programa instruccion .)
+    ELDESTE         reduce using rule 1 (programa -> programa instruccion .)
+    LADESTE         reduce using rule 1 (programa -> programa instruccion .)
+    LADASTA         reduce using rule 1 (programa -> programa instruccion .)
+    MEZCLA          reduce using rule 1 (programa -> programa instruccion .)
+    $end            reduce using rule 1 (programa -> programa instruccion .)
+
+
+state 13
+
+    (3) instruccion -> sentencia_select PUNTOCOMA .
+
+    error           reduce using rule 3 (instruccion -> sentencia_select PUNTOCOMA .)
+    ELDESTE         reduce using rule 3 (instruccion -> sentencia_select PUNTOCOMA .)
+    LADESTE         reduce using rule 3 (instruccion -> sentencia_select PUNTOCOMA .)
+    LADASTA         reduce using rule 3 (instruccion -> sentencia_select PUNTOCOMA .)
+    MEZCLA          reduce using rule 3 (instruccion -> sentencia_select PUNTOCOMA .)
+    $end            reduce using rule 3 (instruccion -> sentencia_select PUNTOCOMA .)
+
+
+state 14
+
+    (4) instruccion -> sentencia_insert PUNTOCOMA .
+
+    error           reduce using rule 4 (instruccion -> sentencia_insert PUNTOCOMA .)
+    ELDESTE         reduce using rule 4 (instruccion -> sentencia_insert PUNTOCOMA .)
+    LADESTE         reduce using rule 4 (instruccion -> sentencia_insert PUNTOCOMA .)
+    LADASTA         reduce using rule 4 (instruccion -> sentencia_insert PUNTOCOMA .)
+    MEZCLA          reduce using rule 4 (instruccion -> sentencia_insert PUNTOCOMA .)
+    $end            reduce using rule 4 (instruccion -> sentencia_insert PUNTOCOMA .)
+
+
+state 15
+
+    (5) instruccion -> sentencia_delete PUNTOCOMA .
+
+    error           reduce using rule 5 (instruccion -> sentencia_delete PUNTOCOMA .)
+    ELDESTE         reduce using rule 5 (instruccion -> sentencia_delete PUNTOCOMA .)
+    LADESTE         reduce using rule 5 (instruccion -> sentencia_delete PUNTOCOMA .)
+    LADASTA         reduce using rule 5 (instruccion -> sentencia_delete PUNTOCOMA .)
+    MEZCLA          reduce using rule 5 (instruccion -> sentencia_delete PUNTOCOMA .)
+    $end            reduce using rule 5 (instruccion -> sentencia_delete PUNTOCOMA .)
+
+
+state 16
+
+    (6) instruccion -> sentencia_update PUNTOCOMA .
+
+    error           reduce using rule 6 (instruccion -> sentencia_update PUNTOCOMA .)
+    ELDESTE         reduce using rule 6 (instruccion -> sentencia_update PUNTOCOMA .)
+    LADESTE         reduce using rule 6 (instruccion -> sentencia_update PUNTOCOMA .)
+    LADASTA         reduce using rule 6 (instruccion -> sentencia_update PUNTOCOMA .)
+    MEZCLA          reduce using rule 6 (instruccion -> sentencia_update PUNTOCOMA .)
+    $end            reduce using rule 6 (instruccion -> sentencia_update PUNTOCOMA .)
+
+
+state 17
+
+    (7) instruccion -> error PUNTOCOMA .
+
+    error           reduce using rule 7 (instruccion -> error PUNTOCOMA .)
+    ELDESTE         reduce using rule 7 (instruccion -> error PUNTOCOMA .)
+    LADESTE         reduce using rule 7 (instruccion -> error PUNTOCOMA .)
+    LADASTA         reduce using rule 7 (instruccion -> error PUNTOCOMA .)
+    MEZCLA          reduce using rule 7 (instruccion -> error PUNTOCOMA .)
+    $end            reduce using rule 7 (instruccion -> error PUNTOCOMA .)
+
+
+state 18
+
+    (8) sentencia_select -> ELDESTE lista_vars . CAFE VAR condicion_opt
+    (9) sentencia_select -> ELDESTE lista_vars . FROM VAR condicion_opt
+    (14) lista_vars -> lista_vars . COMA VAR
+
+    CAFE            shift and go to state 23
+    FROM            shift and go to state 24
+    COMA            shift and go to state 25
+
+
+state 19
+
+    (13) lista_vars -> VAR .
+
+    CAFE            reduce using rule 13 (lista_vars -> VAR .)
+    FROM            reduce using rule 13 (lista_vars -> VAR .)
+    COMA            reduce using rule 13 (lista_vars -> VAR .)
+    RPAREN          reduce using rule 13 (lista_vars -> VAR .)
+
+
+state 20
+
+    (10) sentencia_insert -> LADESTE MARCACAFE . VAR LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN
+
+    VAR             shift and go to state 26
+
+
+state 21
+
+    (11) sentencia_delete -> LADASTA CAFE . VAR condicion_opt
+
+    VAR             shift and go to state 27
+
+
+state 22
+
+    (12) sentencia_update -> MEZCLA VAR . LADESTE lista_asignaciones condicion_opt
+
+    LADESTE         shift and go to state 28
+
+
+state 23
+
+    (8) sentencia_select -> ELDESTE lista_vars CAFE . VAR condicion_opt
+
+    VAR             shift and go to state 29
+
+
+state 24
+
+    (9) sentencia_select -> ELDESTE lista_vars FROM . VAR condicion_opt
+
+    VAR             shift and go to state 30
+
+
+state 25
+
+    (14) lista_vars -> lista_vars COMA . VAR
+
+    VAR             shift and go to state 31
+
+
+state 26
+
+    (10) sentencia_insert -> LADESTE MARCACAFE VAR . LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN
+
+    LPAREN          shift and go to state 32
+
+
+state 27
+
+    (11) sentencia_delete -> LADASTA CAFE VAR . condicion_opt
+    (19) condicion_opt -> . CONAZUCAR condicion
+    (20) condicion_opt -> . empty
+    (33) empty -> .
+
+    CONAZUCAR       shift and go to state 34
+    PUNTOCOMA       reduce using rule 33 (empty -> .)
+
+    condicion_opt                  shift and go to state 33
+    empty                          shift and go to state 35
+
+state 28
+
+    (12) sentencia_update -> MEZCLA VAR LADESTE . lista_asignaciones condicion_opt
+    (17) lista_asignaciones -> . VAR ASG expresion
+    (18) lista_asignaciones -> . lista_asignaciones COMA VAR ASG expresion
+
+    VAR             shift and go to state 36
+
+    lista_asignaciones             shift and go to state 37
+
+state 29
+
+    (8) sentencia_select -> ELDESTE lista_vars CAFE VAR . condicion_opt
+    (19) condicion_opt -> . CONAZUCAR condicion
+    (20) condicion_opt -> . empty
+    (33) empty -> .
+
+    CONAZUCAR       shift and go to state 34
+    PUNTOCOMA       reduce using rule 33 (empty -> .)
+
+    condicion_opt                  shift and go to state 38
+    empty                          shift and go to state 35
+
+state 30
+
+    (9) sentencia_select -> ELDESTE lista_vars FROM VAR . condicion_opt
+    (19) condicion_opt -> . CONAZUCAR condicion
+    (20) condicion_opt -> . empty
+    (33) empty -> .
+
+    CONAZUCAR       shift and go to state 34
+    PUNTOCOMA       reduce using rule 33 (empty -> .)
+
+    condicion_opt                  shift and go to state 39
+    empty                          shift and go to state 35
+
+state 31
+
+    (14) lista_vars -> lista_vars COMA VAR .
+
+    CAFE            reduce using rule 14 (lista_vars -> lista_vars COMA VAR .)
+    FROM            reduce using rule 14 (lista_vars -> lista_vars COMA VAR .)
+    COMA            reduce using rule 14 (lista_vars -> lista_vars COMA VAR .)
+    RPAREN          reduce using rule 14 (lista_vars -> lista_vars COMA VAR .)
+
+
+state 32
+
+    (10) sentencia_insert -> LADESTE MARCACAFE VAR LPAREN . lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN
+    (13) lista_vars -> . VAR
+    (14) lista_vars -> . lista_vars COMA VAR
+
+    VAR             shift and go to state 19
+
+    lista_vars                     shift and go to state 40
+
+state 33
+
+    (11) sentencia_delete -> LADASTA CAFE VAR condicion_opt .
+
+    PUNTOCOMA       reduce using rule 11 (sentencia_delete -> LADASTA CAFE VAR condicion_opt .)
+
+
+state 34
+
+    (19) condicion_opt -> CONAZUCAR . condicion
+    (21) condicion -> . expresion IGUAL expresion
+    (22) condicion -> . expresion GT expresion
+    (23) condicion -> . expresion LT expresion
+    (24) condicion -> . expresion DISTINTO expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    condicion                      shift and go to state 41
+    expresion                      shift and go to state 42
+
+state 35
+
+    (20) condicion_opt -> empty .
+
+    PUNTOCOMA       reduce using rule 20 (condicion_opt -> empty .)
+
+
+state 36
+
+    (17) lista_asignaciones -> VAR . ASG expresion
+
+    ASG             shift and go to state 47
+
+
+state 37
+
+    (12) sentencia_update -> MEZCLA VAR LADESTE lista_asignaciones . condicion_opt
+    (18) lista_asignaciones -> lista_asignaciones . COMA VAR ASG expresion
+    (19) condicion_opt -> . CONAZUCAR condicion
+    (20) condicion_opt -> . empty
+    (33) empty -> .
+
+    COMA            shift and go to state 49
+    CONAZUCAR       shift and go to state 34
+    PUNTOCOMA       reduce using rule 33 (empty -> .)
+
+    condicion_opt                  shift and go to state 48
+    empty                          shift and go to state 35
+
+state 38
+
+    (8) sentencia_select -> ELDESTE lista_vars CAFE VAR condicion_opt .
+
+    PUNTOCOMA       reduce using rule 8 (sentencia_select -> ELDESTE lista_vars CAFE VAR condicion_opt .)
+
+
+state 39
+
+    (9) sentencia_select -> ELDESTE lista_vars FROM VAR condicion_opt .
+
+    PUNTOCOMA       reduce using rule 9 (sentencia_select -> ELDESTE lista_vars FROM VAR condicion_opt .)
+
+
+state 40
+
+    (10) sentencia_insert -> LADESTE MARCACAFE VAR LPAREN lista_vars . RPAREN VALUES LPAREN lista_expresiones RPAREN
+    (14) lista_vars -> lista_vars . COMA VAR
+
+    RPAREN          shift and go to state 50
+    COMA            shift and go to state 25
+
+
+state 41
+
+    (19) condicion_opt -> CONAZUCAR condicion .
+
+    PUNTOCOMA       reduce using rule 19 (condicion_opt -> CONAZUCAR condicion .)
+
+
+state 42
+
+    (21) condicion -> expresion . IGUAL expresion
+    (22) condicion -> expresion . GT expresion
+    (23) condicion -> expresion . LT expresion
+    (24) condicion -> expresion . DISTINTO expresion
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    IGUAL           shift and go to state 51
+    GT              shift and go to state 52
+    LT              shift and go to state 53
+    DISTINTO        shift and go to state 54
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 43
+
+    (25) expresion -> NUM .
+
+    IGUAL           reduce using rule 25 (expresion -> NUM .)
+    GT              reduce using rule 25 (expresion -> NUM .)
+    LT              reduce using rule 25 (expresion -> NUM .)
+    DISTINTO        reduce using rule 25 (expresion -> NUM .)
+    MAS             reduce using rule 25 (expresion -> NUM .)
+    MENOS           reduce using rule 25 (expresion -> NUM .)
+    MUL             reduce using rule 25 (expresion -> NUM .)
+    DIV             reduce using rule 25 (expresion -> NUM .)
+    RPAREN          reduce using rule 25 (expresion -> NUM .)
+    COMA            reduce using rule 25 (expresion -> NUM .)
+    CONAZUCAR       reduce using rule 25 (expresion -> NUM .)
+    PUNTOCOMA       reduce using rule 25 (expresion -> NUM .)
+
+
+state 44
+
+    (26) expresion -> STR .
+
+    IGUAL           reduce using rule 26 (expresion -> STR .)
+    GT              reduce using rule 26 (expresion -> STR .)
+    LT              reduce using rule 26 (expresion -> STR .)
+    DISTINTO        reduce using rule 26 (expresion -> STR .)
+    MAS             reduce using rule 26 (expresion -> STR .)
+    MENOS           reduce using rule 26 (expresion -> STR .)
+    MUL             reduce using rule 26 (expresion -> STR .)
+    DIV             reduce using rule 26 (expresion -> STR .)
+    RPAREN          reduce using rule 26 (expresion -> STR .)
+    COMA            reduce using rule 26 (expresion -> STR .)
+    CONAZUCAR       reduce using rule 26 (expresion -> STR .)
+    PUNTOCOMA       reduce using rule 26 (expresion -> STR .)
+
+
+state 45
+
+    (27) expresion -> VAR .
+
+    IGUAL           reduce using rule 27 (expresion -> VAR .)
+    GT              reduce using rule 27 (expresion -> VAR .)
+    LT              reduce using rule 27 (expresion -> VAR .)
+    DISTINTO        reduce using rule 27 (expresion -> VAR .)
+    MAS             reduce using rule 27 (expresion -> VAR .)
+    MENOS           reduce using rule 27 (expresion -> VAR .)
+    MUL             reduce using rule 27 (expresion -> VAR .)
+    DIV             reduce using rule 27 (expresion -> VAR .)
+    RPAREN          reduce using rule 27 (expresion -> VAR .)
+    COMA            reduce using rule 27 (expresion -> VAR .)
+    CONAZUCAR       reduce using rule 27 (expresion -> VAR .)
+    PUNTOCOMA       reduce using rule 27 (expresion -> VAR .)
+
+
+state 46
+
+    (32) expresion -> LPAREN . expresion RPAREN
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 59
+
+state 47
+
+    (17) lista_asignaciones -> VAR ASG . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 60
+
+state 48
+
+    (12) sentencia_update -> MEZCLA VAR LADESTE lista_asignaciones condicion_opt .
+
+    PUNTOCOMA       reduce using rule 12 (sentencia_update -> MEZCLA VAR LADESTE lista_asignaciones condicion_opt .)
+
+
+state 49
+
+    (18) lista_asignaciones -> lista_asignaciones COMA . VAR ASG expresion
+
+    VAR             shift and go to state 61
+
+
+state 50
+
+    (10) sentencia_insert -> LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN . VALUES LPAREN lista_expresiones RPAREN
+
+    VALUES          shift and go to state 62
+
+
+state 51
+
+    (21) condicion -> expresion IGUAL . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 63
+
+state 52
+
+    (22) condicion -> expresion GT . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 64
+
+state 53
+
+    (23) condicion -> expresion LT . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 65
+
+state 54
+
+    (24) condicion -> expresion DISTINTO . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 66
+
+state 55
+
+    (28) expresion -> expresion MAS . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 67
+
+state 56
+
+    (29) expresion -> expresion MENOS . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 68
+
+state 57
+
+    (30) expresion -> expresion MUL . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 69
+
+state 58
+
+    (31) expresion -> expresion DIV . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 70
+
+state 59
+
+    (32) expresion -> LPAREN expresion . RPAREN
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    RPAREN          shift and go to state 71
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 60
+
+    (17) lista_asignaciones -> VAR ASG expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    COMA            reduce using rule 17 (lista_asignaciones -> VAR ASG expresion .)
+    CONAZUCAR       reduce using rule 17 (lista_asignaciones -> VAR ASG expresion .)
+    PUNTOCOMA       reduce using rule 17 (lista_asignaciones -> VAR ASG expresion .)
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 61
+
+    (18) lista_asignaciones -> lista_asignaciones COMA VAR . ASG expresion
+
+    ASG             shift and go to state 72
+
+
+state 62
+
+    (10) sentencia_insert -> LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN VALUES . LPAREN lista_expresiones RPAREN
+
+    LPAREN          shift and go to state 73
+
+
+state 63
+
+    (21) condicion -> expresion IGUAL expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    PUNTOCOMA       reduce using rule 21 (condicion -> expresion IGUAL expresion .)
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 64
+
+    (22) condicion -> expresion GT expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    PUNTOCOMA       reduce using rule 22 (condicion -> expresion GT expresion .)
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 65
+
+    (23) condicion -> expresion LT expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    PUNTOCOMA       reduce using rule 23 (condicion -> expresion LT expresion .)
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 66
+
+    (24) condicion -> expresion DISTINTO expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    PUNTOCOMA       reduce using rule 24 (condicion -> expresion DISTINTO expresion .)
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 67
+
+    (28) expresion -> expresion MAS expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    IGUAL           reduce using rule 28 (expresion -> expresion MAS expresion .)
+    GT              reduce using rule 28 (expresion -> expresion MAS expresion .)
+    LT              reduce using rule 28 (expresion -> expresion MAS expresion .)
+    DISTINTO        reduce using rule 28 (expresion -> expresion MAS expresion .)
+    MAS             reduce using rule 28 (expresion -> expresion MAS expresion .)
+    MENOS           reduce using rule 28 (expresion -> expresion MAS expresion .)
+    RPAREN          reduce using rule 28 (expresion -> expresion MAS expresion .)
+    COMA            reduce using rule 28 (expresion -> expresion MAS expresion .)
+    CONAZUCAR       reduce using rule 28 (expresion -> expresion MAS expresion .)
+    PUNTOCOMA       reduce using rule 28 (expresion -> expresion MAS expresion .)
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+  ! MUL             [ reduce using rule 28 (expresion -> expresion MAS expresion .) ]
+  ! DIV             [ reduce using rule 28 (expresion -> expresion MAS expresion .) ]
+  ! MAS             [ shift and go to state 55 ]
+  ! MENOS           [ shift and go to state 56 ]
+
+
+state 68
+
+    (29) expresion -> expresion MENOS expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    IGUAL           reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    GT              reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    LT              reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    DISTINTO        reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    MAS             reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    MENOS           reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    RPAREN          reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    COMA            reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    CONAZUCAR       reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    PUNTOCOMA       reduce using rule 29 (expresion -> expresion MENOS expresion .)
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+  ! MUL             [ reduce using rule 29 (expresion -> expresion MENOS expresion .) ]
+  ! DIV             [ reduce using rule 29 (expresion -> expresion MENOS expresion .) ]
+  ! MAS             [ shift and go to state 55 ]
+  ! MENOS           [ shift and go to state 56 ]
+
+
+state 69
+
+    (30) expresion -> expresion MUL expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    IGUAL           reduce using rule 30 (expresion -> expresion MUL expresion .)
+    GT              reduce using rule 30 (expresion -> expresion MUL expresion .)
+    LT              reduce using rule 30 (expresion -> expresion MUL expresion .)
+    DISTINTO        reduce using rule 30 (expresion -> expresion MUL expresion .)
+    MAS             reduce using rule 30 (expresion -> expresion MUL expresion .)
+    MENOS           reduce using rule 30 (expresion -> expresion MUL expresion .)
+    MUL             reduce using rule 30 (expresion -> expresion MUL expresion .)
+    DIV             reduce using rule 30 (expresion -> expresion MUL expresion .)
+    RPAREN          reduce using rule 30 (expresion -> expresion MUL expresion .)
+    COMA            reduce using rule 30 (expresion -> expresion MUL expresion .)
+    CONAZUCAR       reduce using rule 30 (expresion -> expresion MUL expresion .)
+    PUNTOCOMA       reduce using rule 30 (expresion -> expresion MUL expresion .)
+
+  ! MAS             [ shift and go to state 55 ]
+  ! MENOS           [ shift and go to state 56 ]
+  ! MUL             [ shift and go to state 57 ]
+  ! DIV             [ shift and go to state 58 ]
+
+
+state 70
+
+    (31) expresion -> expresion DIV expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    IGUAL           reduce using rule 31 (expresion -> expresion DIV expresion .)
+    GT              reduce using rule 31 (expresion -> expresion DIV expresion .)
+    LT              reduce using rule 31 (expresion -> expresion DIV expresion .)
+    DISTINTO        reduce using rule 31 (expresion -> expresion DIV expresion .)
+    MAS             reduce using rule 31 (expresion -> expresion DIV expresion .)
+    MENOS           reduce using rule 31 (expresion -> expresion DIV expresion .)
+    MUL             reduce using rule 31 (expresion -> expresion DIV expresion .)
+    DIV             reduce using rule 31 (expresion -> expresion DIV expresion .)
+    RPAREN          reduce using rule 31 (expresion -> expresion DIV expresion .)
+    COMA            reduce using rule 31 (expresion -> expresion DIV expresion .)
+    CONAZUCAR       reduce using rule 31 (expresion -> expresion DIV expresion .)
+    PUNTOCOMA       reduce using rule 31 (expresion -> expresion DIV expresion .)
+
+  ! MAS             [ shift and go to state 55 ]
+  ! MENOS           [ shift and go to state 56 ]
+  ! MUL             [ shift and go to state 57 ]
+  ! DIV             [ shift and go to state 58 ]
+
+
+state 71
+
+    (32) expresion -> LPAREN expresion RPAREN .
+
+    IGUAL           reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    GT              reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    LT              reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    DISTINTO        reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    MAS             reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    MENOS           reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    MUL             reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    DIV             reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    RPAREN          reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    COMA            reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    CONAZUCAR       reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+    PUNTOCOMA       reduce using rule 32 (expresion -> LPAREN expresion RPAREN .)
+
+
+state 72
+
+    (18) lista_asignaciones -> lista_asignaciones COMA VAR ASG . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 74
+
+state 73
+
+    (10) sentencia_insert -> LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN VALUES LPAREN . lista_expresiones RPAREN
+    (15) lista_expresiones -> . expresion
+    (16) lista_expresiones -> . lista_expresiones COMA expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    lista_expresiones              shift and go to state 75
+    expresion                      shift and go to state 76
+
+state 74
+
+    (18) lista_asignaciones -> lista_asignaciones COMA VAR ASG expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    COMA            reduce using rule 18 (lista_asignaciones -> lista_asignaciones COMA VAR ASG expresion .)
+    CONAZUCAR       reduce using rule 18 (lista_asignaciones -> lista_asignaciones COMA VAR ASG expresion .)
+    PUNTOCOMA       reduce using rule 18 (lista_asignaciones -> lista_asignaciones COMA VAR ASG expresion .)
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 75
+
+    (10) sentencia_insert -> LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones . RPAREN
+    (16) lista_expresiones -> lista_expresiones . COMA expresion
+
+    RPAREN          shift and go to state 77
+    COMA            shift and go to state 78
+
+
+state 76
+
+    (15) lista_expresiones -> expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    RPAREN          reduce using rule 15 (lista_expresiones -> expresion .)
+    COMA            reduce using rule 15 (lista_expresiones -> expresion .)
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
+
+state 77
+
+    (10) sentencia_insert -> LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN .
+
+    PUNTOCOMA       reduce using rule 10 (sentencia_insert -> LADESTE MARCACAFE VAR LPAREN lista_vars RPAREN VALUES LPAREN lista_expresiones RPAREN .)
+
+
+state 78
+
+    (16) lista_expresiones -> lista_expresiones COMA . expresion
+    (25) expresion -> . NUM
+    (26) expresion -> . STR
+    (27) expresion -> . VAR
+    (28) expresion -> . expresion MAS expresion
+    (29) expresion -> . expresion MENOS expresion
+    (30) expresion -> . expresion MUL expresion
+    (31) expresion -> . expresion DIV expresion
+    (32) expresion -> . LPAREN expresion RPAREN
+
+    NUM             shift and go to state 43
+    STR             shift and go to state 44
+    VAR             shift and go to state 45
+    LPAREN          shift and go to state 46
+
+    expresion                      shift and go to state 79
+
+state 79
+
+    (16) lista_expresiones -> lista_expresiones COMA expresion .
+    (28) expresion -> expresion . MAS expresion
+    (29) expresion -> expresion . MENOS expresion
+    (30) expresion -> expresion . MUL expresion
+    (31) expresion -> expresion . DIV expresion
+
+    RPAREN          reduce using rule 16 (lista_expresiones -> lista_expresiones COMA expresion .)
+    COMA            reduce using rule 16 (lista_expresiones -> lista_expresiones COMA expresion .)
+    MAS             shift and go to state 55
+    MENOS           shift and go to state 56
+    MUL             shift and go to state 57
+    DIV             shift and go to state 58
+
